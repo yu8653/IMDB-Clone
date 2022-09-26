@@ -1,0 +1,63 @@
+.nav {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.nav a{
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 30px;
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+}
+
+.nav > a:hover {
+    color: red;
+}
+
+.nav-icon {
+    width: 80px;
+    cursor: pointer;
+}
+
+.nav > .icon {
+    display: none;
+    float: right;
+}
+
+@media screen and (max-width: 600px) {
+    .nav> a:not(:first-child) {
+        display: none;
+    }
+    .nav > a.icon {
+      display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav{
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .nav.open {
+        position: relative;
+        flex-direction: column;
+    }
+    .nav.open .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .nav.open a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
+
+

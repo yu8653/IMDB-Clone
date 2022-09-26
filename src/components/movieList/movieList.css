@@ -1,0 +1,31 @@
+.movie-list {
+    padding: 0 3rem 3rem 3rem;
+}
+
+.list-title {
+font-size: 1.75rem;
+margin:  2.5rem;
+}
+
+.list-cards {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+}
+
+.pagenation{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.pagenation a{
+    margin: 0 0.5rem;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #fff;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
