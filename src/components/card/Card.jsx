@@ -1,20 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "./card.css";
 
 const Card = ({ movie }) => {
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
+
+  const cardRef = useRef();
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
       setIsLoading(false);
-    }, 1000);
+    }
+  });
+
+  useEffect(() => {
+    observer.observe(cardRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <>
       {isLoading ? (
-        <div className="card">
+        <div className="card" ref={cardRef}>
           <SkeletonTheme color="#202020" highlightColor="#444">
             <Skeleton height={300} duration={2} />
           </SkeletonTheme>
@@ -23,6 +34,7 @@ const Card = ({ movie }) => {
         <Link to={`/movie/${movie.id}`} className="card-link">
           <div className="card">
             <img
+              loading="lazy"
               className="card-img"
               src={`https://image.tmdb.org/t/p/original${
                 movie ? movie.poster_path : ""
