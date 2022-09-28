@@ -4,14 +4,14 @@ import "./header.css";
 import IMDBLogo from "./IMDB_Logo.png";
 
 const Header = () => {
-  const [toogle, setToogle] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
-    setToogle(!toogle);
+    setIsOpen((preIsOpen) => !preIsOpen);
   };
 
   return (
-    <nav className={`nav ${toogle ? "" : "open"}`}>
+    <nav className={`nav ${isOpen ? "open" : ""}`}>
       <Link to="/" className="nav-logo">
         <img className="nav-icon" src={IMDBLogo} alt="IMDB Logo" />
       </Link>

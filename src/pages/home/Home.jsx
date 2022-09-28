@@ -57,7 +57,11 @@ const Home = () => {
                     <i className="fas fa-star" />{" "}
                   </span>
                 </div>
-                <div className="movie-description">{movie?.overview}</div>
+                <div className="movie-description">
+                  {movie?.overview?.length > 100
+                    ? `${movie?.overview.slice(0, 50)}...`
+                    : movie?.overview}
+                </div>
               </div>
             </Link>
           ))}
