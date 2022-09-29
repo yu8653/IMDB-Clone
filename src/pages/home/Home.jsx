@@ -9,12 +9,11 @@ import MovieList from "../../components/movieList/MovieList";
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
 
-  const API_KEY = "ceacd0ea7a0e41c173327b6f1cf5a096";
   useEffect(() => {
     axios(`https://api.themoviedb.org/3/movie/popular`, {
       method: "GET",
       params: {
-        api_key: API_KEY,
+        api_key: import.meta.env.VITE_TMDB_API_KEY,
         language: "en-US",
         page: 1,
       },

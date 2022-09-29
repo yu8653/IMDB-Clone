@@ -11,6 +11,7 @@ const Card = ({ movie }) => {
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       setIsLoading(false);
+      observer.disconnect();
     }
   });
 

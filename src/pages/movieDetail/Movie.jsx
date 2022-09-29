@@ -16,7 +16,7 @@ const Movie = () => {
     const data = await axios(`https://api.themoviedb.org/3/movie/${id}`, {
       method: "GET",
       params: {
-        api_key: "4e44d9029b1270a757cddc766a1bcb63",
+        api_key: import.meta.env.VITE_TMDB_API_KEY,
         language: "en-US",
       },
     });

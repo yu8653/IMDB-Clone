@@ -21,7 +21,7 @@ const MovieList = ({ isFrontPage = false }) => {
         {
           method: "GET",
           params: {
-            api_key: "ceacd0ea7a0e41c173327b6f1cf5a096",
+            api_key: import.meta.env.VITE_TMDB_API_KEY,
             language: "en-US",
             page: Number(page),
           },
@@ -30,7 +30,7 @@ const MovieList = ({ isFrontPage = false }) => {
       const data = res.data;
       setMovieList(data.results);
     } catch (error) {
-      setError(error);
+      console.log(error);
     }
   };
 
